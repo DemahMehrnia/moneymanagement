@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}home{% endblock %}
+{% block body %}
+   <a href={% url 'incomelist' %}><h1>Incomes</h1></a>
+    <ul>
+    {% for item in intro %}
+        <a href={% url 'incomesdetail' item.id %}><li>{{ item.name }} : {{ item.valu }}</li></a>
+    {% endfor %}
+    </ul>
+    <hr>
+    <a href={% url 'outrolist' %}><h1>Outros</h1></a>
+    <ul>
+    {% for item in outro %}
+        <a href={% url 'outrosdetail' item.id %}><li>{{ item.name }} : {{ item.valu }}</li></a>
+    {% endfor %}
+    </ul>
+    <hr>
+    <h1>Debts</h1>
+    <ul>
+    {% for item in debt %}
+        <a href={% url 'debtsdetail' item.id %}><li>{{ item.name }} : {{ item.mounthvalu }} permonth from {{ item.allvalu }}</li></a>
+    {% endfor %}
+    </ul>
+
+
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}incomelist{% endblock %}
+{% block body %}
+<h1>Incomes</h1> 
+    <a href={% url 'incomeadd' %}>  
+     <h2>
+          AddIncome
+        </h2>
+    </a>
+    {% for item in intro %}
+        <a href={% url 'incomesdetail' item.id %}><li>{{ item.name }} : {{ item.valu }}</li></a>
+    {% endfor %}
+{% endblock %}
